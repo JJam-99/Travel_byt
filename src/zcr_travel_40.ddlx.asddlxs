@@ -1,0 +1,171 @@
+@Metadata.layer: #CORE
+annotate entity ZCR_TRAVEL_40 with
+{
+  @UI.facet: [
+  { id: 'TravelInfo',
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'TravelInformation',
+  label: 'Travel Information',
+  position: 10 },
+  { id: 'AgencyInfo',
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'AgencyInformation',
+  label: 'Agency Information',
+  position: 20 },
+  { id: 'CustomerInfo',
+  type: #FIELDGROUP_REFERENCE,
+  targetQualifier: 'CustomerInformation',
+  label: 'Customer Information', position: 30 }
+  ]
+
+  @UI.lineItem: [ { position: 10, label: 'Travel Id' } ]
+  @UI.selectionField: [ { element: 'TravelText', position: 10 } ]
+  @UI.fieldGroup: [{ qualifier: 'TravelInformation', position: 10 }]
+  @Consumption.filter.selectionType: #RANGE
+  //  @Consumption.filter.mandatory: true
+  @Consumption.filter.defaultValue: '7'
+  @Consumption.valueHelpDefinition: [{ entity.element: 'TravelID', entity.name: '/DMO/I_Travel_U' }]
+  TravelId;
+
+  @UI.lineItem: [ { position: 20, label: 'Agency Id' } ]
+  @UI.selectionField: [ { position: 20 } ]
+  @UI.fieldGroup: [{ position: 20, qualifier: 'AgencyInformation' }]
+  @Consumption.filter.selectionType: #RANGE
+  AgencyId;
+
+  @UI.lineItem: [ { position: 30, label: 'Customer Id' } ]
+  @UI.selectionField: [ { position: 30 } ]
+  @Consumption.filter.selectionType: #RANGE
+  @Consumption.valueHelpDefinition: [{ entity.element: 'CustomerID', entity.name: 'ZI_TRAVEL_AGENCY_VH',
+    additionalBinding: [{ element: 'TravelID', localElement: 'TravelId', usage: #FILTER_AND_RESULT }] }]
+  CustomerId;
+
+  @UI.lineItem: [ { position: 40, label: 'Begin Date' } ]
+  @UI.selectionField: [ { position: 40 } ]
+  @UI.fieldGroup: [{ position: 30, qualifier: 'TravelInformation' }]
+  @Consumption.filter.selectionType: #RANGE
+  BeginDate;
+
+  @UI.lineItem: [ { position: 50, label: 'End Date' } ]
+  @UI.selectionField: [ { position: 50 } ]
+  @UI.fieldGroup: [{ position: 40, qualifier: 'TravelInformation' }]
+  @Consumption.filter.selectionType: #RANGE
+  EndDate;
+
+  @UI.lineItem: [ { position: 60, label: 'Booking Fee' } ]
+  @UI.fieldGroup: [{ position: 50, qualifier: 'TravelInformation' }]
+  BookingFee;
+
+  @UI.lineItem: [ { position: 70, label: 'Total Price' } ]
+  @UI.fieldGroup: [{ position: 60, qualifier: 'TravelInformation' }]
+  TotalPrice;
+
+  @UI.lineItem: [ { position: 80, label: 'Currency' } ]
+  @UI.fieldGroup: [{ position: 70, qualifier: 'TravelInformation' }]
+  CurrencyCode;
+
+  @UI.lineItem: [ { position: 90, label: 'Description' } ]
+  @UI.fieldGroup: [{ position: 80, qualifier: 'TravelInformation' }]
+  Description;
+
+  @UI.lineItem: [ { position: 100, label: 'Travel Text' } ]
+  @UI.selectionField: [ { position: 105 } ]
+  @UI.fieldGroup: [{ position: 100, qualifier: 'TravelInformation' }]
+  TravelText;
+
+  @UI.lineItem: [ { position: 100, label: 'Status' } ]
+  @UI.selectionField: [ { position: 100 } ]
+  @UI.fieldGroup: [{ position: 90, qualifier: 'TravelInformation' }]
+  Status;
+
+  @UI.hidden: true
+  @UI.lineItem: [{ hidden: true }]
+  Createdby;
+
+  @UI.hidden: true
+  @UI.lineItem: [{ hidden: true }]
+  Createdat;
+
+  @UI.hidden: true
+  @UI.lineItem: [{ hidden: true }]
+  Lastchangedby;
+
+  @UI.hidden: true
+  @UI.lineItem: [{ hidden: true }]
+  Lastchangedat;
+
+  @UI.hidden: true
+  @UI.lineItem: [{ hidden: true }]
+  Log_DesAgency;
+
+  @UI.lineItem: [ { position: 110, label: 'Progress' } ]
+  @UI.fieldGroup: [{ position: 10, qualifier: 'LogInformation' }]
+  Log_DataPointProgres;
+
+  @UI.hidden: true
+  @UI.lineItem: [{ hidden: true }]
+  Log_criticalityProgres;
+
+  @UI.lineItem: [ { position: 120, label: 'Agency Name' } ]
+  @UI.fieldGroup: [{ position: 10, qualifier: 'AgencyInformation' }]
+  AgencyEmplName;
+
+  @UI.lineItem: [ { position: 130, label: 'Agency City' } ]
+  @UI.selectionField: [ { position: 130 } ]
+  @UI.fieldGroup: [{ position: 20, qualifier: 'AgencyInformation' }]
+  AgencyCity;
+
+  @UI.lineItem: [ { position: 140, label: 'Agency Country' } ]
+  @UI.selectionField: [ { position: 140 } ]
+  @UI.fieldGroup: [{ position: 30, qualifier: 'AgencyInformation' }]
+  AgencyCountry;
+
+  @UI.lineItem: [ { position: 150, label: 'Agency Email' } ]
+  @UI.fieldGroup: [{ position: 40, qualifier: 'AgencyInformation' }]
+  AgencyEmail;
+
+  @UI.lineItem: [ { position: 160, label: 'Agency Website' } ]
+  @UI.fieldGroup: [{ position: 50, qualifier: 'AgencyInformation' }]
+  AgencyWeb;
+
+  @UI.lineItem: [ { position: 170, label: 'Agency Phone' } ]
+  @UI.fieldGroup: [{ position: 60, qualifier: 'AgencyInformation' }]
+  AgencyPhone;
+
+  @UI.lineItem: [ { position: 180, label: 'First Name' } ]
+  @UI.fieldGroup: [{ position: 10, qualifier: 'CustomerInformation' }]
+  FirstName;
+
+  @UI.lineItem: [ { position: 190, label: 'Last Name' } ]
+  @UI.fieldGroup: [{ position: 20, qualifier: 'CustomerInformation' }]
+  LastName;
+
+  @UI.lineItem: [ { position: 200, label: 'Email' } ]
+  @UI.fieldGroup: [{ position: 30, qualifier: 'CustomerInformation' }]
+  EMailAddress;
+
+  @UI.lineItem: [ { position: 210, label: 'Phone' } ]
+  @UI.fieldGroup: [{ position: 40, qualifier: 'CustomerInformation' }]
+  PhoneNumber;
+
+  @UI.lineItem: [ { position: 220, label: 'City' } ]
+//  @UI.selectionField: [ { position: 220 } ]
+  @UI.fieldGroup: [{ position: 50, qualifier: 'CustomerInformation' }]
+  City;
+
+
+
+  @UI.hidden: true
+  @UI.lineItem: [{ hidden: true }]
+  CountryCode;
+  //  @UI.lineItem: [ { position: 220, label: 'Custom field' } ]
+  //  @UI.selectionField: [ { element: 'City', position: 220 } ]
+  @UI.hidden: true
+  @UI.lineItem: [{ hidden: true }]
+  customxx;
+  /* Associations */
+  //    _Agency;
+  //    _Customer;
+  //    _Travel_T;
+
+}

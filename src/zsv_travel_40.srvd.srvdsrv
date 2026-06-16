@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Def ZSV_TRAVEL_40'
+define service Zsv_travel_40 {
+  expose ZCR_TRAVEL_40 as Travel;
+}
